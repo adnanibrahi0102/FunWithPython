@@ -1,5 +1,5 @@
 username= "adnan"
-print(username[-2])
+print(username[-1])
 print(username.capitalize())
 print(len(username))
 
