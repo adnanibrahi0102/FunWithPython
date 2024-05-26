@@ -8,18 +8,32 @@ def load_data():
 
 def save_data(videos):
     with open('youtube.txt', 'w') as file:
-        json.dum(videos,file)
+        json.dump(videos,file)
 def list_videos(videos):
-    pass
+   print(videos)
+   for index , video in enumerate(videos , start=1):
+       print (f"{index}. {video['name']} ,Duration: {video['time']}")
+
 
 def add_video(videos):
-    pass
+    name = input ("Enter video name: ")
+    time = input ("Enter video time: ")
+    videos.append({"name":name,"time":time})
+    save_data(videos)
 
 def delete_video(videos):
-    pass
+   list_videos(videos)
+   index = int(input("Enter video index to delete: "))
+   del videos[index-1]
+   save_data(videos)
+
 
 def update_video(videos):
-    pass
+    list_videos(videos)
+    index = int(input("Enter video index to update: "))
+    name = input ("Enter video name: ")
+    time = input ("Enter video time: ")
+    videos[index-1] ={"name":name, "time":time }
 def main():
     videos = load_data()
     while True:
